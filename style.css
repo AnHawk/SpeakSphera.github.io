@@ -1,0 +1,300 @@
+/* Сброс базовых стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    line-height: 1.6;
+    color: #1D1D1D;
+    background-color: #fff;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    background: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.header{
+    padding: 20px 0;
+    background-color: #FDF8EE;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logo__title{
+    font-size: 24px;
+    font-weight: 700;
+    color: #4D2C5E;
+}
+.logo__img{
+    width: 56px;
+    height: 56px;
+    margin-right: 6px;
+}
+
+.nav{
+    display: flex;
+    align-items: center;
+}
+.nav__links {
+    display: flex;
+    margin-right: 45px;
+}
+
+.nav__link{
+    margin-right: 30px;
+    position: relative;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+}
+.nav__link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav__link:hover::after {
+    transform: scaleX(1);
+}
+
+.phone__button{
+    padding: 12px 12px;
+    background-color: #4D2C5E;
+    color: #fff;
+    border-radius: 118px;
+}
+
+.section__hero{
+    padding: 68px 0 150px 0;
+    background-image: url('bg.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #FDF8EE;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 1100px;
+    text-align: left;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s ease-out forwards;
+    position: relative;
+}
+.advancet {
+    position: absolute;
+    bottom: -250px; /* Половина высоты блока */
+    left: 53%;
+    width: 1000px;
+    /* height: 200px; */
+    padding: 34px 0;
+    background: #4D2C5E; 
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    
+    /* Flex для центрирования */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px; /* Расстояние между карточками */
+
+    /* Анимация появления */
+    transform: translate(-50%, 50px);
+    animation: fadeInUpAdv 1s 1.5s ease-out forwards;
+}
+
+/* Карточки */
+.advancet__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: white;
+    max-width: 250px;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* Поочередное появление карточек */
+.advancet__card:nth-child(1) {
+    animation: fadeInUpCards 1s 1.8s ease-out forwards;
+}
+
+.advancet__card:nth-child(2) {
+    animation: fadeInUpCards 1s 2.1s ease-out forwards;
+}
+
+.advancet__card:nth-child(3) {
+    animation: fadeInUpCards 1s 2.4s ease-out forwards;
+}
+
+/* Иконки */
+.advancet__card img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+    background-color: rgba(236, 239, 241, 0.2);
+    border-radius: 10px;
+}
+
+/* Анимация появления основного блока */
+@keyframes fadeInUpAdv {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 50px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+/* Анимация появления карточек */
+@keyframes fadeInUpCards {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Контент */
+.hero-content {
+    max-width: 500px;
+}
+
+h1 {
+    font-size: 40px;
+    color: #222;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s 0.3s ease-out forwards;
+}
+
+h1 .highlight {
+    color: #ff7b29;
+}
+
+p {
+    font-size: 16px;
+    color: #8A8A8A;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s 0.6s ease-out forwards;
+    margin-bottom: 30px;
+}
+
+/* Кнопка */
+.cta-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 18px;
+    color: white;
+    background: #5D3FD3;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s 0.9s ease-out forwards;
+}
+
+/* Изображение */
+.hero-image img {
+    /* max-width: 400px; */
+    opacity: 0;
+    transform: scale(0.9);
+    animation: zoomIn 1s 1.2s ease-out forwards;
+}
+
+/* Анимации */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomIn {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.сourses{
+    margin-top: 130px;
+    text-align: center;
+}
+.courses__title {
+    font-family: "Jost", sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.courses__subtitle{
+    font-size: 16px;
+    color: #8A8A8A;
+    margin-bottom: 30px;
+}	
+
+.courses__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
