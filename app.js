@@ -41,3 +41,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.addEventListener("scroll", reveal);
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    new Swiper(".testimonial-slider", {
+        loop: false, // Убираем зацикливание, чтобы не было пустых слайдов
+        slidesPerView: 3, // Показывать 3 отзыва
+        slidesPerGroup: 3, // Переключать сразу по 3 отзыва
+        spaceBetween: 20, // Расстояние между отзывами
+        autoplay: {
+            delay: 5000, // Автопрокрутка каждые 3 секунды
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+            1024: { slidesPerView: 3, slidesPerGroup: 3 }, // ПК
+            768: { slidesPerView: 2, slidesPerGroup: 2 }, // Планшет
+            480: { slidesPerView: 1, slidesPerGroup: 1 }, // Телефон
+        }
+    });
+});

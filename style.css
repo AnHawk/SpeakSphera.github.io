@@ -179,11 +179,11 @@ img {
 
 /* Иконки */
 .advancet__card img {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     margin-bottom: 10px;
     background-color: rgba(236, 239, 241, 0.2);
-    border-radius: 10px;
+    border-radius: 18px;
 }
 
 /* Анимация появления основного блока */
@@ -379,21 +379,27 @@ p {
 
 .sectionn__learning{
     padding: 68px 0 0 0;
-    background-image: url('bg.png');  
-    background-size: contain;
-    background-position: left;
-    background-repeat: no-repeat;
     background-color: #FDF8EE;
+    margin-bottom: 60px;
 }
 
 .learning__image{
+    /* margin: 0 auto; */
+    width: 50%;
+    background-image: url('bglearning.png');  
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+}
+.learning__image img{
     max-width: 400px;
-    margin: 0 auto;
 }
 
 .achive__img{
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
 }
 
 .learning__inner{
@@ -422,10 +428,85 @@ p {
     gap: 20px;
     margin-bottom: 20px;
     color: #050C26;
+    align-items: center;
 }
 
 .achive__title{
     font-size: 18px;
     font-weight: 700;
     width: 50%;
+}
+
+
+.testimonial-slider {
+    max-width: 1100px; /* Ограничиваем ширину контейнера */
+    margin: auto;
+    position: relative;
+    padding-bottom: 60px;
+}
+.swiper-wrapper {
+    display: flex;
+}
+.swiper-slide {
+    width: 350px !important; /* Фиксируем ширину слайда */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.testimonial {
+    width: 100%;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* text-align: center; */
+}
+
+.testimonial p {
+    font-size: 16px;
+    color: #555;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* margin-top: 10px; */
+    /* justify-content: center; */
+}
+
+.profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.info strong {
+    display: block;
+    font-size: 14px;
+    color: #333;
+}
+
+.info span {
+    font-size: 12px;
+    color: #888;
+}
+
+/* Настройки стрелок */
+.swiper-button-prev,
+.swiper-button-next {
+    color: #5d3baf;
+}
+
+/* Настройки пагинации */
+.swiper-pagination-bullet {
+    background: #ccc;
+    width: 10px;
+    height: 10px;
+}
+
+.swiper-pagination-bullet-active {
+    background: #5d3baf;
 }
