@@ -510,3 +510,58 @@ p {
 .swiper-pagination-bullet-active {
     background: #5d3baf;
 }
+
+
+.conaction{
+    padding: 90px 0;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    width: 610px; /* Ширина блока */
+    height: 80px; /* Высота блока */
+    background: #fff;
+    border-radius: 40px; /* Закругленные углы */
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.input-container input {
+    flex: 1;
+    height: 100%;
+    border: none;
+    outline: none;
+    padding: 0 20px;
+    font-size: 18px;
+    color: #555;
+    background: none;
+}
+
+.input-container input::placeholder {
+    color: #aaa;
+}
+
+.input-container button {
+    /* height: 100%; */
+    margin: 10px 10px;
+    padding: 20px 90px;
+    border: none;
+    background: #ff7f2a;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.input-container button:hover {
+    background: #e66b1e;
+}
+
+.conaction__inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

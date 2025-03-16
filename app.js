@@ -66,3 +66,29 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const phoneInput = document.getElementById("phone-input");
+
+    phoneInput.addEventListener("input", function (e) {
+        let value = phoneInput.value.replace(/\D/g, ""); // Удаляем всё, кроме цифр
+        let formattedValue = "+38 ";
+
+        if (value.length > 2) {
+            formattedValue += `(${value.substring(2, 5)}`;
+        }
+        if (value.length >= 5) {
+            formattedValue += `) ${value.substring(5, 8)}`;
+        }
+        if (value.length >= 8) {
+            formattedValue += `-${value.substring(8, 10)}`;
+        }
+        if (value.length >= 10) {
+            formattedValue += `-${value.substring(10, 12)}`;
+        }
+
+        phoneInput.value = formattedValue;
+    });
+});
+
