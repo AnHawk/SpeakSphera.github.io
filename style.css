@@ -278,13 +278,14 @@ p {
 
 .сourses{
     margin-top: 130px;
-    text-align: center;
+    padding-bottom: 130px;
+    /* text-align: center; */
 }
 .courses__title {
     font-family: "Jost", sans-serif;
     font-size: 32px;
     font-weight: 700;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 
 .courses__subtitle{
@@ -296,7 +297,7 @@ p {
 .courses__list {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    justify-content: space-between;
 }
 
 .subcurses{
@@ -304,10 +305,15 @@ p {
     justify-content: space-between;
 }
 
+.card__img{
+    margin-bottom: 18px;
+}
+
 .courses__info{
 }
 
 .courses__card{
+    position: relative;
     max-width: 350px;
     text-align: left;
     background-color: #fff;
@@ -320,4 +326,106 @@ p {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    padding-bottom: 14px;
+}
+
+.curses__stars{
+    width: 88px;
+    height: 16px;
+}
+
+.info__subtitle{
+    font-size: 16px;
+    color: #8A8A8A;
+    margin-bottom: 10px;
+}
+
+.categori__item{
+    font-size: 14px;
+    color: #8A8A8A;
+    margin-bottom: 4px;
+    margin-right: 8px;
+}
+
+.courses__categori{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-top: #ACACAC 1px dashed;
+    padding-top: 6px;
+}
+
+.courses__price{
+    margin-bottom: 6px;
+    color: #FF7426;
+    font-weight: 500;
+}
+
+.courses__button{
+    padding: 12px 24px;
+    background-color: #FF7426;
+    color: #fff;
+    border-radius: 118px;
+    position: absolute;
+    bottom: -25px;
+    right: 30%;
+    font-weight: 500;
+}
+
+.courses__top{
+    text-align: center;
+}
+
+
+.sectionn__learning{
+    padding: 68px 0 0 0;
+    background-image: url('bg.png');  
+    background-size: contain;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-color: #FDF8EE;
+}
+
+.learning__image{
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.achive__img{
+    width: 60px;
+    height: 60px;
+}
+
+.learning__inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+
+.learning__title{
+    width: 60%;
+    font-size: 40px;
+    color: #222;
+    margin: 0;
+    font-weight: 800;
+    line-height: 135%;
+    margin-bottom: 30px;
+}
+
+.learning__title span{
+    color: #ff7b29;
+}
+
+.achive__item{
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    color: #050C26;
+}
+
+.achive__title{
+    font-size: 18px;
+    font-weight: 700;
+    width: 50%;
 }
