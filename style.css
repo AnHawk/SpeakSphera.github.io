@@ -373,9 +373,20 @@ p {
 }
 
 .courses__top{
+    position: relative;
     text-align: center;
 }
-
+.decor1{
+    width: 100px;
+    position: absolute;
+    left: -10%;
+}
+.decor2{
+    width: 100px;
+    position: absolute;
+    right: -10%;
+    top: 0;
+}
 
 .sectionn__learning{
     padding: 68px 0 0 0;
@@ -561,7 +572,112 @@ p {
 }
 
 .conaction__inner{
+    background-image: url('bgconect.png');  
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #4D2C5E;
+    padding: 100px 0;
+    border-radius: 14px;
+}
+
+.conect{
+    color: #ffff;
+}
+
+
+
+.footer {
+    background: #FDF8EE;
+    color: #606060;
+    padding: 20px 0;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+
+
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.footer-nav ul li a {
+    color: #00052E;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.footer-contacts p {
+    margin: 5px 0;
+}
+
+.footer-socials a img {
+    width: 24px;
+    margin-bottom: 10px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 10px;
+    font-size: 14px;
+    border-top: 1px solid #B7B7B7;
+}
+
+
+.section__comments {
+    position: relative;
+    /* padding: 60px 0; */
+}
+
+/* Первая окружность (слева сверху) */
+.section__comments::before {
+    content: "";
+    position: absolute;
+    width: 300px; /* Размер окружности */
+    height: 300px;
+    background: rgba(255, 116, 38, 0.1); /* Оранжевый цвет с прозрачностью */
+    border-radius: 50%;
+    bottom: -80px;
+    left: -50px;
+    z-index: 0;
+    filter: blur(50px);
+    box-shadow: 0 0 100px 50px rgba(255, 116, 38, 0.1);
+}
+
+/* Вторая окружность (справа снизу) */
+.section__comments::after {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background: rgba(255, 116, 38, 0.1); /* Голубой цвет с прозрачностью */
+    border-radius: 50%;
+    bottom: -80px;
+    right: -80px;
+    z-index: 0;
+    filter: blur(50px);
+    box-shadow: 0 0 100px 50px rgba(255, 116, 38, 0.1);
+}
+
+/* Контент внутри секции должен быть выше окружностей */
+.comments__inner {
+    position: relative;
+    z-index: 1;
 }
