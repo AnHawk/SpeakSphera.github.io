@@ -721,6 +721,14 @@ p {
 
 /* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
+    .decor2{
+        right: 0;
+        top: -60%;
+    }
+    .section__comments::after{
+        width: 0;
+        height: 50%;
+    }
     .hero {
         flex-direction: column;
         text-align: center;
