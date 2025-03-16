@@ -38,10 +38,11 @@ img {
     display: block;
 }
 
-.header{
+.header {
     padding: 20px 0;
     background-color: #FDF8EE;
 }
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -53,39 +54,43 @@ img {
     justify-content: space-between;
     align-items: center;
 }
-.logo{
+
+.logo {
     display: flex;
     align-items: center;
     cursor: pointer;
 }
 
-.logo__title{
+.logo__title {
     font-size: 24px;
     font-weight: 700;
     color: #4D2C5E;
 }
-.logo__img{
+
+.logo__img {
     width: 56px;
     height: 56px;
     margin-right: 6px;
 }
 
-.nav{
+.nav {
     display: flex;
     align-items: center;
 }
+
 .nav__links {
     display: flex;
     margin-right: 45px;
 }
 
-.nav__link{
+.nav__link {
     margin-right: 30px;
     position: relative;
     display: inline-block;
     font-size: 16px;
     font-weight: 500;
 }
+
 .nav__link::after {
     content: "";
     position: absolute;
@@ -102,17 +107,77 @@ img {
     transform: scaleX(1);
 }
 
-.phone__button{
+.phone__button {
     padding: 12px 12px;
     background-color: #4D2C5E;
     color: #fff;
     border-radius: 118px;
 }
 
-.section__hero{
+/* Стили для бургер-меню */
+.burger {
+    display: none; /* По умолчанию скрыт */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.burger__line {
+    width: 100%;
+    height: 3px;
+    background: #4D2C5E;
+    transition: all 0.3s ease;
+}
+
+/* Мобильная навигация */
+@media (max-width: 768px) {
+    .burger {
+        display: flex; /* Показываем бургер на мобильных */
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Скрываем навигацию */
+        height: 100vh;
+        width: 70%;
+        background: #FDF8EE;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.3s ease;
+        z-index: 999;
+    }
+
+    .nav.active {
+        right: 0; /* Показываем навигацию */
+    }
+
+    .nav__links {
+        flex-direction: column;
+        margin-right: 0;
+    }
+
+    .nav__link {
+        margin-right: 0;
+        margin-bottom: 20px;
+        font-size: 18px;
+    }
+
+    .phone__button {
+        margin-top: 20px;
+    }
+}
+
+.section__hero {
     padding: 68px 0 150px 0;
     background-image: url('bg.png');
-    background-size: contain;
+    background-size: cover; /* Заменяем contain на cover */
     background-position: center;
     background-repeat: no-repeat;
     background-color: #FDF8EE;
@@ -129,30 +194,25 @@ img {
     animation: fadeInUp 1s ease-out forwards;
     position: relative;
 }
+
 .advancet {
     position: absolute;
     bottom: -250px; /* Половина высоты блока */
     left: 53%;
     width: 1000px;
-    /* height: 200px; */
     padding: 34px 0;
-    background: #4D2C5E; 
+    background: #4D2C5E;
     border-radius: 16px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     opacity: 0;
-    
-    /* Flex для центрирования */
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px; /* Расстояние между карточками */
-
-    /* Анимация появления */
+    gap: 40px;
     transform: translate(-50%, 50px);
     animation: fadeInUpAdv 1s 1.5s ease-out forwards;
 }
 
-/* Карточки */
 .advancet__card {
     display: flex;
     flex-direction: column;
@@ -164,7 +224,6 @@ img {
     transform: translateY(30px);
 }
 
-/* Поочередное появление карточек */
 .advancet__card:nth-child(1) {
     animation: fadeInUpCards 1s 1.8s ease-out forwards;
 }
@@ -177,7 +236,6 @@ img {
     animation: fadeInUpCards 1s 2.4s ease-out forwards;
 }
 
-/* Иконки */
 .advancet__card img {
     width: 80px;
     height: 80px;
@@ -186,7 +244,6 @@ img {
     border-radius: 18px;
 }
 
-/* Анимация появления основного блока */
 @keyframes fadeInUpAdv {
     from {
         opacity: 0;
@@ -198,7 +255,6 @@ img {
     }
 }
 
-/* Анимация появления карточек */
 @keyframes fadeInUpCards {
     from {
         opacity: 0;
@@ -210,7 +266,6 @@ img {
     }
 }
 
-/* Контент */
 .hero-content {
     max-width: 500px;
 }
@@ -237,7 +292,6 @@ p {
     margin-bottom: 30px;
 }
 
-/* Кнопка */
 .cta-button {
     display: inline-block;
     margin-top: 20px;
@@ -253,15 +307,12 @@ p {
     animation: fadeInUp 1s 0.9s ease-out forwards;
 }
 
-/* Изображение */
 .hero-image img {
-    /* max-width: 400px; */
     opacity: 0;
     transform: scale(0.9);
     animation: zoomIn 1s 1.2s ease-out forwards;
 }
 
-/* Анимации */
 @keyframes fadeInUp {
     to {
         opacity: 1;
@@ -276,23 +327,22 @@ p {
     }
 }
 
-.сourses{
+.сourses {
     margin-top: 130px;
     padding-bottom: 130px;
-    /* text-align: center; */
 }
+
 .courses__title {
     font-family: "Jost", sans-serif;
     font-size: 32px;
     font-weight: 700;
-    /* margin-bottom: 10px; */
 }
 
-.courses__subtitle{
+.courses__subtitle {
     font-size: 16px;
     color: #8A8A8A;
     margin-bottom: 30px;
-}	
+}
 
 .courses__list {
     display: flex;
@@ -300,19 +350,19 @@ p {
     justify-content: space-between;
 }
 
-.subcurses{
+.subcurses {
     display: flex;
     justify-content: space-between;
 }
 
-.card__img{
+.card__img {
     margin-bottom: 18px;
 }
 
-.courses__info{
+.courses__info {
 }
 
-.courses__card{
+.courses__card {
     position: relative;
     max-width: 350px;
     text-align: left;
@@ -322,32 +372,32 @@ p {
     border-radius: 14px;
 }
 
-.courses__categori{
+.courses__categori {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     padding-bottom: 14px;
 }
 
-.curses__stars{
+.curses__stars {
     width: 88px;
     height: 16px;
 }
 
-.info__subtitle{
+.info__subtitle {
     font-size: 16px;
     color: #8A8A8A;
     margin-bottom: 10px;
 }
 
-.categori__item{
+.categori__item {
     font-size: 14px;
     color: #8A8A8A;
     margin-bottom: 4px;
     margin-right: 8px;
 }
 
-.courses__categori{
+.courses__categori {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -355,13 +405,13 @@ p {
     padding-top: 6px;
 }
 
-.courses__price{
+.courses__price {
     margin-bottom: 6px;
     color: #FF7426;
     font-weight: 500;
 }
 
-.courses__button{
+.courses__button {
     padding: 12px 24px;
     background-color: #FF7426;
     color: #fff;
@@ -372,55 +422,57 @@ p {
     font-weight: 500;
 }
 
-.courses__top{
+.courses__top {
     position: relative;
     text-align: center;
 }
-.decor1{
+
+.decor1 {
     width: 100px;
     position: absolute;
     left: -10%;
 }
-.decor2{
+
+.decor2 {
     width: 100px;
     position: absolute;
     right: -10%;
     top: 0;
 }
 
-.sectionn__learning{
+.sectionn__learning {
     padding: 68px 0 0 0;
     background-color: #FDF8EE;
     margin-bottom: 60px;
 }
 
-.learning__image{
-    /* margin: 0 auto; */
+.learning__image {
     width: 50%;
-    background-image: url('bglearning.png');  
-    background-size: contain;
+    background-image: url('bglearning.png');
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
 }
-.learning__image img{
+
+.learning__image img {
     max-width: 400px;
 }
 
-.achive__img{
+.achive__img {
     width: 80px;
     height: 80px;
 }
 
-.learning__inner{
+.learning__inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 50px;
 }
 
-.learning__title{
+.learning__title {
     width: 60%;
     font-size: 40px;
     color: #222;
@@ -430,11 +482,11 @@ p {
     margin-bottom: 30px;
 }
 
-.learning__title span{
+.learning__title span {
     color: #ff7b29;
 }
 
-.achive__item{
+.achive__item {
     display: flex;
     gap: 20px;
     margin-bottom: 20px;
@@ -442,24 +494,25 @@ p {
     align-items: center;
 }
 
-.achive__title{
+.achive__title {
     font-size: 18px;
     font-weight: 700;
     width: 50%;
 }
 
-
 .testimonial-slider {
-    max-width: 1100px; /* Ограничиваем ширину контейнера */
+    max-width: 1100px;
     margin: auto;
     position: relative;
     padding-bottom: 60px;
 }
+
 .swiper-wrapper {
     display: flex;
 }
+
 .swiper-slide {
-    width: 350px !important; /* Фиксируем ширину слайда */
+    width: 350px !important;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -472,7 +525,6 @@ p {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    /* text-align: center; */
 }
 
 .testimonial p {
@@ -484,8 +536,6 @@ p {
     display: flex;
     align-items: center;
     gap: 10px;
-    /* margin-top: 10px; */
-    /* justify-content: center; */
 }
 
 .profile img {
@@ -505,13 +555,11 @@ p {
     color: #888;
 }
 
-/* Настройки стрелок */
 .swiper-button-prev,
 .swiper-button-next {
     color: #5d3baf;
 }
 
-/* Настройки пагинации */
 .swiper-pagination-bullet {
     background: #ccc;
     width: 10px;
@@ -522,18 +570,17 @@ p {
     background: #5d3baf;
 }
 
-
-.conaction{
+.conaction {
     padding: 90px 0;
 }
 
 .input-container {
     display: flex;
     align-items: center;
-    width: 610px; /* Ширина блока */
-    height: 80px; /* Высота блока */
+    width: 610px;
+    height: 80px;
     background: #fff;
-    border-radius: 40px; /* Закругленные углы */
+    border-radius: 40px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -554,7 +601,6 @@ p {
 }
 
 .input-container button {
-    /* height: 100%; */
     margin: 10px 10px;
     padding: 20px 90px;
     border: none;
@@ -571,8 +617,8 @@ p {
     background: #e66b1e;
 }
 
-.conaction__inner{
-    background-image: url('bgconect.png');  
+.conaction__inner {
+    background-image: url('bgconect.png');
     background-size: cover;
     background-position: bottom;
     background-repeat: no-repeat;
@@ -584,11 +630,9 @@ p {
     border-radius: 14px;
 }
 
-.conect{
+.conect {
     color: #ffff;
 }
-
-
 
 .footer {
     background: #FDF8EE;
@@ -605,8 +649,6 @@ p {
     flex-wrap: wrap;
     padding: 20px;
 }
-
-
 
 .footer-nav ul {
     list-style: none;
@@ -640,19 +682,16 @@ p {
     border-top: 1px solid #B7B7B7;
 }
 
-
 .section__comments {
     position: relative;
-    /* padding: 60px 0; */
 }
 
-/* Первая окружность (слева сверху) */
 .section__comments::before {
     content: "";
     position: absolute;
-    width: 300px; /* Размер окружности */
+    width: 300px;
     height: 300px;
-    background: rgba(255, 116, 38, 0.1); /* Оранжевый цвет с прозрачностью */
+    background: rgba(255, 116, 38, 0.1);
     border-radius: 50%;
     bottom: -80px;
     left: -50px;
@@ -661,13 +700,12 @@ p {
     box-shadow: 0 0 100px 50px rgba(255, 116, 38, 0.1);
 }
 
-/* Вторая окружность (справа снизу) */
 .section__comments::after {
     content: "";
     position: absolute;
     width: 350px;
     height: 350px;
-    background: rgba(255, 116, 38, 0.1); /* Голубой цвет с прозрачностью */
+    background: rgba(255, 116, 38, 0.1);
     border-radius: 50%;
     bottom: -80px;
     right: -80px;
@@ -676,8 +714,180 @@ p {
     box-shadow: 0 0 100px 50px rgba(255, 116, 38, 0.1);
 }
 
-/* Контент внутри секции должен быть выше окружностей */
 .comments__inner {
     position: relative;
     z-index: 1;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-image img {
+        max-width: 100%;
+    }
+
+    .advancet {
+        position: static;
+        width: 100%;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        margin-top: 20px;
+        margin-left: 385px;
+    }
+
+    .courses__list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .courses__card {
+        max-width: 100%;
+        margin-bottom: 40px;
+    }
+
+    .learning__inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .learning__image {
+        width: 100%;
+    }
+
+    .achive__item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .achive__title {
+        width: 100%;
+    }
+
+    .testimonial-slider {
+        max-width: 100%;
+    }
+
+    .swiper-slide {
+        width: 100% !important;
+    }
+
+    .input-container {
+        width: 90%;
+        height: auto;
+        flex-direction: column;
+        padding: 20px 0 0px 0;
+    }
+
+    .input-container input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .input-container button {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-nav ul {
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+
+    .footer-nav ul li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .footer-socials {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo__title {
+        font-size: 20px;
+    }
+
+    .logo__img {
+        width: 40px;
+        height: 40px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .hero-content {
+        padding: 0 15px;
+    }
+
+    .courses__title {
+        font-size: 24px;
+    }
+
+    .courses__subtitle {
+        font-size: 14px;
+    }
+
+    .courses__button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .learning__title {
+        margin: 0 auto;
+        margin-bottom: 20px;
+        font-size: 28px;
+    }
+
+    .achive__title {
+        font-size: 16px;
+        width: 60%;
+    }
+
+    .testimonial p {
+        font-size: 14px;
+    }
+
+    .info strong {
+        font-size: 12px;
+    }
+
+    .info span {
+        font-size: 10px;
+    }
+
+    .input-container input {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .input-container button {
+        font-size: 16px;
+    }
+
+    .section__hero{
+        padding-bottom: 30px;
+        padding-top: 30px;
+    }
 }
