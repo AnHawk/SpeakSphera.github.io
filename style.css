@@ -838,7 +838,7 @@ p {
     }
 
     h1 {
-        font-size: 28px;
+        font-size: 42px;
     }
 
     p {
@@ -897,5 +897,8 @@ p {
     .section__hero{
         padding-bottom: 30px;
         padding-top: 30px;
+    }
+    .courses__button{
+        right: 35%;
     }
 }
