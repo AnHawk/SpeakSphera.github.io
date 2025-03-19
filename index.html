@@ -132,7 +132,7 @@
                         </div>
                         <div class="courses__info">
                             <div class="info__title">IT-професії для дорослих (18+)</div>
-                            <div class="courses__price">Frontend, Python-розробка, Backend, Full Stuck</div>
+                            <div class="courses__price">Frontend, Python, Backend, Full Stuck</div>
                         </div>
                         <div class="courses__categori">
                             <div class="categori__item">Навчання для швидкого входу в IT</div>
@@ -329,6 +329,31 @@
         </div>
     </footer>
     
+
+    <!-- Модальное окно -->
+    <div id="modal" class="modal">
+        <div class="modal__content">
+            <span class="modal__close">&times;</span>
+            <h2>Запис на курс</h2>
+            <form id="modalForm">
+                <label for="name">Ім'я:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="phone">Телефон:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="course">Виберіть курс:</label>
+                <select id="course" name="course">
+                    <option value="kids">Програмування для дітей</option>
+                    <option value="teens">Програмування для підлітків</option>
+                    <option value="adults">Програмування для дорослих</option>
+                </select>
+
+                <button type="submit" class="modal__submit">Відправити</button>
+            </form>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.8/inputmask.min.js"></script>
     <script src="app.js"></script>

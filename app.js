@@ -102,3 +102,37 @@ document.addEventListener('DOMContentLoaded', function () {
         burger.classList.toggle('active');
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("modal");
+    const closeModal = document.querySelector(".modal__close");
+    const buttons = document.querySelectorAll(".courses__button");
+
+    // Открытие модального окна
+    buttons.forEach(button => {
+        button.addEventListener("click", function () {
+            modal.style.display = "flex"; // Гарантируем показ модального окна
+            setTimeout(() => modal.classList.add("show"), 10); // Даем время на обработку display
+        });
+    });
+
+    // Функция закрытия модального окна
+    function hideModal() {
+        modal.classList.remove("show");
+        setTimeout(() => {
+            modal.style.display = "none"; // Скрываем после завершения анимации
+        }, 300);
+    }
+
+    // Закрытие по кнопке "×"
+    closeModal.addEventListener("click", hideModal);
+
+    // Закрытие при клике вне формы
+    window.addEventListener("click", function (event) {
+        if (event.target === modal) {
+            hideModal();
+        }
+    });
+});
+
