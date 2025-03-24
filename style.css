@@ -985,3 +985,90 @@ input, select {
 .modal__submit:hover {
     background-color: #3a1f47;
 }
+
+.courses-page {
+    padding: 50px 0;
+    background: #f8f9fa;
+    text-align: center;
+}
+
+.courses__title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.courses__subtitle {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.courses__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+    justify-content: center;
+}
+
+.courses__card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease-in-out;
+}
+
+.courses__card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card__img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.tab__info {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.tab__cat {
+    font-size: 16px;
+    font-weight: bold;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.tab__des {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 15px;
+}
+.tab__img{
+    width: 100%;
+    height: 300px;
+}
+/* .courses__button {
+    background: #FF7426;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.courses__button:hover {
+    background: #E65F1F;
+} */
+
+
+.tab__main{
+    text-align: start;
+}

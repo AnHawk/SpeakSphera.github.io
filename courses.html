@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="uk">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="logo.png">
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <title>IT-Travel</title>
+    </head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a class="logo" href="#">
+                    <img class="logo__img" src="logo.png" alt="Логотип">
+                    <span class="logo__title">IT-Travel</span>
+                </a>
+                <div class="burger__container">
+
+                </div>
+                <!-- Бургер-меню -->
+                <button class="burger" aria-label="Открыть меню">
+                    <span class="burger__line"></span>
+                    <span class="burger__line"></span>
+                    <span class="burger__line"></span>
+                </button>
+                <div class="nav">
+                    <nav>
+                        <ul class="nav__links">
+                            <li><a href="index.html" class="nav__link">Головна</a></li>
+                            <li><a href="index.html" class="nav__link">Про нас</a></li>
+                            <li><a href="#" class="nav__link">Курси</a></li>
+                            <!-- <li><a href="#" class="nav__link">Блог</a></li> -->
+                            <li><a href="index.html" class="nav__link">Контакти</a></li>
+                        </ul>
+                    </nav>
+                    <button class="phone__button">+38 (000) 000-00-00</button>
+                </div>
+            </div>
+        </div>
+    </header>  
+
+    <main>
+        <section class="courses-page">
+            <div class="container">
+                <h1 class="courses__title">Наші курси</h1>
+                <p class="courses__subtitle">Оберіть курс, який вам підходить</p>
+                <div id="coursesList" class="courses__list"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Логотип -->
+            <div class="footer-logo">
+                <a class="logo" href="#">
+                    <img class="logo__img" src="logo.png" alt="Логотип">
+                    <span class="logo__title">IT-Travel</span>
+                </a>
+            </div>
+    
+            <!-- Навигация -->
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="#">Головна</a></li>
+                    <li><a href="#">Про нас</a></li>
+                    <li><a href="#">Каталог</a></li>
+                    <li><a href="#">Контакти</a></li>
+                </ul>
+            </nav>
+    
+            <!-- Контакти -->
+            <div class="footer-contacts">
+                <p>📍 Онлайн</p>
+                <p>📞 +380 99 999 99 99</p>
+                <p>✉️ info@example.com</p>
+            </div>
+    
+            <!-- Социальные сети -->
+            <div class="footer-socials">
+                <a href="#"><img src="facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="instagram.png" alt="Instagram"></a>
+                <a href="#"><img src="telegram.png" alt="Telegram"></a>
+            </div>
+        </div>
+    
+        <!-- Копирайт -->
+        <div class="footer-bottom">
+            <p>© IT-Travel</p>
+        </div>
+    </footer>
+    <script src="courses.js"></script>
+</body>
+</html>
