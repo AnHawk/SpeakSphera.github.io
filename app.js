@@ -134,5 +134,101 @@ document.addEventListener("DOMContentLoaded", function () {
             hideModal();
         }
     });
+
+    document.getElementById("modalForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        
+        const name = document.getElementById("name").value;
+        const phone = document.getElementById("phone").value;
+        const course = document.getElementById("course").value;
+        
+        const botToken = "6746869776:AAFBDOC2iCzZi747ehkV_VtWZlwIe3w8nuU";
+        const chatId = "-4095221548";
+        
+        const message = `Новая заявка!%0AИмя: ${name}%0AТелефон: ${phone}%0AКурс: ${course}`;
+        
+        fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${message}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    console.log("Ваша заявка отправлена!");
+                    modal.style.display = "none";
+                } else {
+                    console.log("Ошибка при отправке. Попробуйте еще раз.");
+                }
+            })
+            .catch(error => {
+                console.error("Ошибка:", error);
+                console.log("Ошибка при отправке. Попробуйте еще раз.");
+            });
+    });
 });
 
+// Функция отправки данных в Telegram
+function sendToTelegram(message) {
+    const botToken = "6746869776:AAFBDOC2iCzZi747ehkV_VtWZlwIe3w8nuU";
+    const chatId = "-4095221548";
+    
+    fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${message}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.ok) {
+                alert("Ваша заявка отправлена!");
+            } else {
+                alert("Ошибка при отправке. Попробуйте еще раз.");
+            }
+        })
+        .catch(error => {
+            console.error("Ошибка:", error);
+            alert("Ошибка при отправке. Попробуйте еще раз.");
+        });
+}
+
+document.getElementById("modalForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+    
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const course = document.getElementById("course").value;
+    
+    const message = `Новая заявка!%0AИмя: ${name}%0AТелефон: ${phone}%0AКурс: ${course}`;
+    sendToTelegram(message);
+    modal.style.display = "none";
+});
+
+// Отправка номера телефона из блока conaction
+document.querySelector(".input-container button").addEventListener("click", function () {
+    const phoneInput = document.getElementById("phone-input").value;
+    if (phoneInput.trim() !== "") {
+        const message = `Запрос на запись!%0AТелефон: ${phoneInput}`;
+        sendToTelegram(message);
+    } else {
+        alert("Введите номер телефона!");
+    }
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const scrollButtons = document.querySelectorAll(".phone__button");
+    const targetSection = document.querySelector(".conaction");
+
+    if (scrollButtons.length > 0 && targetSection) {
+        scrollButtons.forEach(button => {
+            button.addEventListener("click", function (event) {
+                event.preventDefault();
+                targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+            });
+        });
+    }
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const phoneButton = document.querySelector(".phone__button");
+
+    if (phoneButton) {
+        phoneButton.addEventListener("click", function () {
+            window.location.href = "tel:+380952502171";
+        });
+    }
+});
