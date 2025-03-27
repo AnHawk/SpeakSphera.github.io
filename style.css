@@ -526,6 +526,7 @@ p {
 
 .testimonial {
     width: 100%;
+    height: 260px;
     background: white;
     padding: 20px;
     border-radius: 10px;
@@ -535,6 +536,7 @@ p {
 .testimonial p {
     font-size: 16px;
     color: #555;
+    height: 128px;
 }
 
 .profile {
@@ -547,6 +549,7 @@ p {
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    display: none;
 }
 
 .info strong {
@@ -878,8 +881,12 @@ p {
         width: 60%;
     }
 
+    .testimonial{
+        height: 230px;
+    }
     .testimonial p {
         font-size: 14px;
+        height: 100px;
     }
 
     .info strong {
