@@ -40,7 +40,7 @@
                             <li><a href="index.html" class="nav__link">Контакти</a></li>
                         </ul>
                     </nav>
-                    <button class="phone__button">+38 (000) 000-00-00</button>
+                    <a href="#" class="phone__button">Записатися</a>
                 </div>
             </div>
         </div>
@@ -51,6 +51,12 @@
             <div class="container">
                 <h1 class="courses__title">Наші курси</h1>
                 <p class="courses__subtitle">Оберіть курс, який вам підходить</p>
+                <div class="age-filters">
+                    <button class="age-filter active" data-age="all">Всі курси</button>
+                    <button class="age-filter" data-age="7-12">7-12 років</button>
+                    <button class="age-filter" data-age="13-18">13-18 років</button>
+                    <button class="age-filter" data-age="18+">18+ років</button>
+                </div>
                 <div id="coursesList" class="courses__list"></div>
             </div>
         </section>
@@ -79,15 +85,15 @@
             <!-- Контакти -->
             <div class="footer-contacts">
                 <p>📍 Онлайн</p>
-                <p>📞 +380 99 999 99 99</p>
-                <p>✉️ info@example.com</p>
+                <p>📞 +380 95 250 21 71</p>
+                <p>✉️ it.travel.online.ua@gmail.com</p>
             </div>
     
             <!-- Социальные сети -->
             <div class="footer-socials">
                 <!-- <a href="#"><img src="img/facebook.png" alt="Facebook"></a> -->
-                <a href="#"><img src="img/instagram.png" alt="Instagram"></a>
-                <a href="#"><img src="img/telegram.png" alt="Telegram"></a>
+                <a href="https://www.instagram.com/it_travel.online?igsh=MTk4Y3E0OTU2YWphZQ%3D%3D&utm_source=qr"><img src="img/instagram.png" alt="Instagram"></a>
+                <a href="https://web.telegram.org/k/"><img src="img/telegram.png" alt="Telegram"></a>
             </div>
         </div>
     
@@ -128,5 +134,38 @@
             </form>
         </div>
     </div>
+
+    <!-- Новое модальное окно для записи -->
+<div id="modal-new" class="modal-new">
+    <div class="modal-new__content">
+        <span class="modal-new__close">&times;</span>
+        <h2 class="modal-new__title">Записатися на безоплатне заняття</h2>
+        <form id="modalNewForm">
+            <input type="text" id="new-name" name="name" placeholder="Ваше ім'я" required>
+            <input type="tel" id="new-phone" name="phone" placeholder="Номер телефону" required>
+            <div id="phone-error" class="modal-new__error">Номер телефону невірний!</div>
+            <button type="submit" class="modal-new__submit">Записатися</button>
+        </form>
+    </div>
+</div>
+
+    <!-- Meta Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '552190157933310');
+        fbq('track', 'PageView');
+        </script>
+        <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=552190157933310&ev=PageView&noscript=1"
+        /></noscript>
+        <!-- End Meta Pixel Code -->
+        
 </body>
 </html>

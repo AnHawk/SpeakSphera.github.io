@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("scroll", reveal);
 });
 
-
 document.addEventListener("DOMContentLoaded", function () {
     const advancet = document.querySelector(".advancet");
     const cards = document.querySelectorAll(".advancet__card");
@@ -29,12 +28,11 @@ document.addEventListener("DOMContentLoaded", function () {
             advancet.style.opacity = "1";
             advancet.style.transform = "translateX(-50%) translateY(0)";
 
-            // Запускаем анимацию для карточек
             cards.forEach((card, index) => {
                 setTimeout(() => {
                     card.style.opacity = "1";
                     card.style.transform = "translateY(0)";
-                }, index * 300); // Каждая карточка появляется с задержкой
+                }, index * 300);
             });
         }
     }
@@ -44,12 +42,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     new Swiper(".testimonial-slider", {
-        loop: false, // Убираем зацикливание, чтобы не было пустых слайдов
-        slidesPerView: 3, // Показывать 3 отзыва
-        slidesPerGroup: 3, // Переключать сразу по 3 отзыва
-        spaceBetween: 20, // Расстояние между отзывами
+        loop: false,
+        slidesPerView: 3,
+        slidesPerGroup: 3,
+        spaceBetween: 20,
         autoplay: {
-            delay: 5000, // Автопрокрутка каждые 3 секунды
+            delay: 5000,
         },
         pagination: {
             el: ".swiper-pagination",
@@ -60,19 +58,18 @@ document.addEventListener("DOMContentLoaded", function () {
             prevEl: ".swiper-button-prev",
         },
         breakpoints: {
-            1024: { slidesPerView: 3, slidesPerGroup: 3 }, // ПК
-            768: { slidesPerView: 2, slidesPerGroup: 2 }, // Планшет
-            480: { slidesPerView: 1, slidesPerGroup: 1 }, // Телефон
+            1024: { slidesPerView: 3, slidesPerGroup: 3 },
+            768: { slidesPerView: 2, slidesPerGroup: 2 },
+            480: { slidesPerView: 1, slidesPerGroup: 1 },
         }
     });
 });
-
 
 document.addEventListener("DOMContentLoaded", function () {
     const phoneInput = document.getElementById("phone-input");
 
     phoneInput.addEventListener("input", function (e) {
-        let value = phoneInput.value.replace(/\D/g, ""); // Удаляем всё, кроме цифр
+        let value = phoneInput.value.replace(/\D/g, "");
         let formattedValue = "+38 ";
 
         if (value.length > 2) {
@@ -92,7 +89,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
 document.addEventListener('DOMContentLoaded', function () {
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.nav');
@@ -103,32 +99,27 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-
 document.addEventListener("DOMContentLoaded", function () {
     const modal = document.getElementById("modal");
     const closeModal = document.querySelector(".modal__close");
     const buttons = document.querySelectorAll(".courses__button");
 
-    // Открытие модального окна
     buttons.forEach(button => {
         button.addEventListener("click", function () {
-            modal.style.display = "flex"; // Гарантируем показ модального окна
-            setTimeout(() => modal.classList.add("show"), 10); // Даем время на обработку display
+            modal.style.display = "flex";
+            setTimeout(() => modal.classList.add("show"), 10);
         });
     });
 
-    // Функция закрытия модального окна
     function hideModal() {
         modal.classList.remove("show");
         setTimeout(() => {
-            modal.style.display = "none"; // Скрываем после завершения анимации
+            modal.style.display = "none";
         }, 300);
     }
 
-    // Закрытие по кнопке "×"
     closeModal.addEventListener("click", hideModal);
 
-    // Закрытие при клике вне формы
     window.addEventListener("click", function (event) {
         if (event.target === modal) {
             hideModal();
@@ -164,6 +155,116 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+// НОВОЕ МОДАЛЬНОЕ ОКНО ДЛЯ ЗАПИСИ
+document.addEventListener("DOMContentLoaded", function () {
+    const modalNew = document.getElementById("modal-new");
+    const closeModalNew = document.querySelector(".modal-new__close");
+    const phoneError = document.getElementById("phone-error");
+    const phoneInputNew = document.getElementById("new-phone");
+
+    // Функция для открытия модального окна
+    function openModalNew() {
+        if (modalNew) {
+            modalNew.style.display = "flex";
+            setTimeout(() => modalNew.classList.add("show"), 10);
+            
+            const nameInput = document.getElementById("new-name");
+            if (nameInput) {
+                setTimeout(() => nameInput.focus(), 50);
+            }
+        }
+    }
+
+    // Функция для закрытия модального окна
+    function hideModalNew() {
+        if (modalNew) {
+            modalNew.classList.remove("show");
+            setTimeout(() => {
+                modalNew.style.display = "none";
+                if (phoneError) phoneError.style.display = "none";
+            }, 300);
+        }
+    }
+
+    // Обработчик для кнопки в хедере
+    const headerButton = document.querySelector(".header .nav .phone__button");
+    if (headerButton) {
+        headerButton.addEventListener("click", function(e) {
+            e.preventDefault();
+            openModalNew();
+        });
+    }
+
+    // Обработчик для кнопки в hero-секции
+    const heroButton = document.querySelector(".hero .phone__button");
+    if (heroButton) {
+        heroButton.addEventListener("click", function(e) {
+            e.preventDefault();
+            openModalNew();
+        });
+    }
+
+    // Закрытие по кнопке "×"
+    if (closeModalNew) {
+        closeModalNew.addEventListener("click", hideModalNew);
+    }
+    
+    // Закрытие при клике вне формы
+    window.addEventListener("click", function (event) {
+        if (event.target === modalNew) {
+            hideModalNew();
+        }
+    });
+    
+    // Форматирование телефона
+    if (phoneInputNew) {
+        phoneInputNew.addEventListener("input", function (e) {
+            let value = phoneInputNew.value.replace(/\D/g, "");
+            let formattedValue = "+38 ";
+            
+            if (value.length > 2) {
+                formattedValue += `(${value.substring(2, 5)}`;
+            }
+            if (value.length >= 5) {
+                formattedValue += `) ${value.substring(5, 8)}`;
+            }
+            if (value.length >= 8) {
+                formattedValue += `-${value.substring(8, 10)}`;
+            }
+            if (value.length >= 10) {
+                formattedValue += `-${value.substring(10, 12)}`;
+            }
+            
+            phoneInputNew.value = formattedValue;
+        });
+    }
+    
+    // Валидация формы
+    const modalNewForm = document.getElementById("modalNewForm");
+    if (modalNewForm) {
+        modalNewForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            
+            const name = document.getElementById("new-name").value;
+            const phone = document.getElementById("new-phone").value;
+            
+            const phoneDigits = phone.replace(/\D/g, "");
+            if (phoneDigits.length !== 12) {
+                if (phoneError) phoneError.style.display = "block";
+                return;
+            }
+            
+            if (phoneError) phoneError.style.display = "none";
+            
+            const message = `Нова заявка на безоплатне заняття!%0AІм'я: ${name}%0AТелефон: ${phone}`;
+            sendToTelegram(message);
+            
+            hideModalNew();
+            modalNewForm.reset();
+        });
+    }
+});
+
 // Функция отправки данных в Telegram
 function sendToTelegram(message) {
     const botToken = "6746869776:AAFBDOC2iCzZi747ehkV_VtWZlwIe3w8nuU";
@@ -184,18 +285,6 @@ function sendToTelegram(message) {
         });
 }
 
-document.getElementById("modalForm").addEventListener("submit", function (event) {
-    event.preventDefault();
-    
-    const name = document.getElementById("name").value;
-    const phone = document.getElementById("phone").value;
-    const course = document.getElementById("course").value;
-    
-    const message = `Новая заявка!%0AИмя: ${name}%0AТелефон: ${phone}%0AКурс: ${course}`;
-    sendToTelegram(message);
-    modal.style.display = "none";
-});
-
 // Отправка номера телефона из блока conaction
 document.querySelector(".input-container button").addEventListener("click", function () {
     const phoneInput = document.getElementById("phone-input").value;
@@ -204,31 +293,5 @@ document.querySelector(".input-container button").addEventListener("click", func
         sendToTelegram(message);
     } else {
         alert("Введите номер телефона!");
-    }
-});
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    const scrollButtons = document.querySelectorAll(".phone__button");
-    const targetSection = document.querySelector(".conaction");
-
-    if (scrollButtons.length > 0 && targetSection) {
-        scrollButtons.forEach(button => {
-            button.addEventListener("click", function (event) {
-                event.preventDefault();
-                targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
-            });
-        });
-    }
-});
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    const phoneButton = document.querySelector(".phone__button");
-
-    if (phoneButton) {
-        phoneButton.addEventListener("click", function () {
-            window.location.href = "tel:+380952502171";
-        });
     }
 });
