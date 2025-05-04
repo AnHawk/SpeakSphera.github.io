@@ -14,8 +14,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const coursesList = document.getElementById("coursesList");
     const ageFilters = document.querySelectorAll(".age-filter");
 
+    // Функция для получения параметра из URL
+    function getUrlParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        const results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
     // Функция для отображения курсов
-    function displayCourses(age = "all") {
+     // Функция для отображения курсов
+     function displayCourses(age = "all") {
         coursesList.innerHTML = "";
         
         const filteredCourses = age === "all" 
@@ -33,15 +42,47 @@ document.addEventListener("DOMContentLoaded", function () {
                     <p class="courses__category tab__cat">${course.category}</p>
                     <p class="courses__description tab__des">${course.description}</p>
                 </div>
-                <button class="courses__button">Детальніше</button>
+                <button class="courses__button" data-course="${course.name}">Записатися</button>
             `;
 
             coursesList.appendChild(courseCard);
         });
+
+        // Добавляем обработчики для новых кнопок
+        document.querySelectorAll('.courses__button').forEach(button => {
+            button.addEventListener('click', function() {
+                const courseName = this.getAttribute('data-course');
+                openModalWithCourse(courseName);
+            });
+        });
     }
 
-    // Инициализация - показываем все курсы
-    displayCourses();
+    // Функция для открытия модального окна с выбранным курсом
+    function openModalWithCourse(courseName) {
+        const modal = document.getElementById('modal');
+        const modalForm = document.getElementById('modalForm');
+        
+        // Устанавливаем выбранный курс в селекторе
+        const courseSelect = modalForm.querySelector('#course');
+        courseSelect.value = courseName;
+        
+        // Открываем модальное окно
+        modal.style.display = 'flex';
+        setTimeout(() => modal.classList.add('show'), 10);
+    }
+
+    // Проверяем параметр из URL при загрузке
+    const urlAgeParam = getUrlParameter('age');
+    let initialAge = "all";
+    
+    if (urlAgeParam && ['7-12', '13-18', '18+'].includes(urlAgeParam)) {
+        initialAge = urlAgeParam;
+        // Активируем соответствующую кнопку фильтра
+        document.querySelector(`.age-filter[data-age="${urlAgeParam}"]`).classList.add('active');
+    }
+
+    // Инициализация - показываем курсы с учетом параметра из URL
+    displayCourses(initialAge);
 
     // Обработчики для фильтров
     ageFilters.forEach(filter => {
@@ -55,3 +96,78 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("modal");
+    const closeModal = document.querySelector(".modal__close");
+    const buttons = document.querySelectorAll(".courses__button");
+
+    buttons.forEach(button => {
+        button.addEventListener("click", function () {
+            modal.style.display = "flex";
+            setTimeout(() => modal.classList.add("show"), 10);
+        });
+    });
+
+    function hideModal() {
+        modal.classList.remove("show");
+        setTimeout(() => {
+            modal.style.display = "none";
+        }, 300);
+    }
+
+    closeModal.addEventListener("click", hideModal);
+
+    window.addEventListener("click", function (event) {
+        if (event.target === modal) {
+            hideModal();
+        }
+    });
+
+    document.getElementById("modalForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        
+        const name = document.getElementById("name").value;
+        const phone = document.getElementById("phone").value;
+        const course = document.getElementById("course").value;
+        
+        const botToken = "6746869776:AAFBDOC2iCzZi747ehkV_VtWZlwIe3w8nuU";
+        const chatId = "-4095221548";
+        
+        const message = `Новая заявка!%0AИмя: ${name}%0AТелефон: ${phone}%0AКурс: ${course}`;
+        
+        fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${message}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    console.log("Ваша заявка отправлена!");
+                    modal.style.display = "none";
+                } else {
+                    console.log("Ошибка при отправке. Попробуйте еще раз.");
+                }
+            })
+            .catch(error => {
+                console.error("Ошибка:", error);
+                console.log("Ошибка при отправке. Попробуйте еще раз.");
+            });
+    });
+});
+
+   // Обработчик закрытия модального окна
+   const closeModal = document.querySelector(".modal__close");
+   if (closeModal) {
+       closeModal.addEventListener("click", function() {
+           const modal = document.getElementById('modal');
+           modal.classList.remove("show");
+           setTimeout(() => modal.style.display = "none", 300);
+       });
+   }
+   
+   // Закрытие при клике вне формы
+   window.addEventListener("click", function(event) {
+       const modal = document.getElementById('modal');
+       if (event.target === modal) {
+           modal.classList.remove("show");
+           setTimeout(() => modal.style.display = "none", 300);
+       }
+   });
