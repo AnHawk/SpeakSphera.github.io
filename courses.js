@@ -142,6 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (data.ok) {
                     console.log("Ваша заявка отправлена!");
                     modal.style.display = "none";
+                    window.location.href = "thank-you.html";
                 } else {
                     console.log("Ошибка при отправке. Попробуйте еще раз.");
                 }
