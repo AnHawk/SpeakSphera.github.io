@@ -50,9 +50,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Добавляем обработчики для новых кнопок
         document.querySelectorAll('.courses__button').forEach(button => {
-            button.addEventListener('click', function() {
+                button.addEventListener('click', function() {
                 const courseName = this.getAttribute('data-course');
-                openModalWithCourse(courseName);
+                window.location.href = `course.html?course=${encodeURIComponent(courseName)}`;
             });
         });
     }

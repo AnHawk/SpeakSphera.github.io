@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Курс</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .course-detail{
+        margin: 20px 0;
+    }
+    .modules-container {
+      margin-top: 20px;
+    }
+    .module {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+    .module-header {
+      background-color: #f7f7f7;
+      padding: 14px 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .lesson-list {
+      padding: 10px 30px;
+      background-color: #fff;
+      list-style-type: disc;
+    }
+    .lesson-list.hidden {
+      display: none;
+    }
+    .toggle-icon {
+      font-size: 22px;
+    }
+
+    /* #enrollBtn {
+      margin-top: 30px;
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    } */
+  </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a class="logo" href="index.html">
+                    <img class="logo__img" src="img/logo.png" alt="Логотип">
+                    <span class="logo__title">IT-Travel</span>
+                </a>
+                <div class="burger__container">
+
+                </div>
+                <!-- Бургер-меню -->
+                <button class="burger" aria-label="Открыть меню">
+                    <span class="burger__line"></span>
+                    <span class="burger__line"></span>
+                    <span class="burger__line"></span>
+                </button>
+                <div class="nav">
+                    <nav>
+                        <ul class="nav__links">
+                            <li><a href="index.html" class="nav__link">Головна</a></li>
+                            <li><a href="index.html" class="nav__link">Про нас</a></li>
+                            <li><a href="courses.html" class="nav__link">Курси</a></li>
+                            <!-- <li><a href="#" class="nav__link">Блог</a></li> -->
+                            <li><a href="index.html" class="nav__link">Контакти</a></li>
+                        </ul>
+                    </nav>
+                    <a href="#" class="phone__button">Записатися</a>
+                </div>
+            </div>
+        </div>
+    </header>
+  <main class="course-detail">
+    <div class="container">
+      <h1 id="course-title"></h1>
+      <p id="course-description"></p>
+      <div id="modules-container" class="modules-container"></div>
+      <button class="phone__button" style="background-color: #FF7426;" id="enrollBtn">Записатися</button>
+    </div>
+  </main>
+
+  <!-- Модальне вікно -->
+  <div id="modal" class="modal">
+    <div class="modal__content">
+      <span class="modal__close">&times;</span>
+      <h2>Запис на курс</h2>
+      <form id="modalForm">
+        <label for="name">Ім'я:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="phone">Телефон:</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label for="course">Курс:</label>
+        <select id="course" name="course">
+          <option value="Roblox">Roblox</option>
+        </select>
+
+        <button type="submit" class="modal__submit">Відправити</button>
+      </form>
+    </div>
+  </div>
+
+
+  <div id="modal-new" class="modal-new">
+    <div class="modal-new__content">
+        <span class="modal-new__close">&times;</span>
+        <h2 class="modal-new__title">Записатися на безкоштовне заняття</h2>
+        <form id="modalNewForm">
+            <input type="text" id="new-name" name="name" placeholder="Ваше ім'я" required>
+            <input type="tel" id="new-phone" name="phone" placeholder="Номер телефону" required>
+            <div id="phone-error" class="modal-new__error">Номер телефону невірний!</div>
+            <button type="submit" class="modal-new__submit">Записатися</button>
+        </form>
+    </div>
+</div>
+   <footer class="footer">
+        <div class="footer-container">
+            <!-- Логотип -->
+            <div class="footer-logo">
+                <a class="logo" href="#">
+                    <img class="logo__img" src="img/logo.png" alt="Логотип">
+                    <span class="logo__title">IT-Travel</span>
+                </a>
+            </div>
+    
+            <!-- Навигация -->
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="#">Головна</a></li>
+                    <li><a href="#">Про нас</a></li>
+                    <li><a href="#">Каталог</a></li>
+                    <li><a href="#">Контакти</a></li>
+                </ul>
+            </nav>
+    
+            <!-- Контакти -->
+            <div class="footer-contacts">
+                <p>📍 Онлайн</p>
+                <p>📞 +380 95 250 21 71</p>
+                <p>✉️ it.travel.online.ua@gmail.com</p>
+            </div>
+    
+            <!-- Социальные сети -->
+            <div class="footer-socials">
+                <!-- <a href="#"><img src="img/facebook.png" alt="Facebook"></a> -->
+                <a href="https://www.instagram.com/it_travel.online?igsh=MTk4Y3E0OTU2YWphZQ%3D%3D&utm_source=qr"><img src="img/instagram.png" alt="Instagram"></a>
+                <a href="https://web.telegram.org/k/"><img src="img/telegram.png" alt="Telegram"></a>
+            </div>
+        </div>
+    
+        <!-- Копирайт -->
+        <div class="footer-bottom">
+            <p>© IT-Travel</p>
+        </div>
+    </footer>
+  <script src="course-detail.js"></script>
+  <script src="app.js"></script>
+  <!-- Meta Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '552190157933310');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=552190157933310&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+</body>
+</html>
